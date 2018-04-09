@@ -1,0 +1,62 @@
+<div class="container" data-ng-controller="ProjectsController">
+<div class="page-header">
+  <h1>Searcheable resume <small>for recent projects</small></h1>
+</div>
+       <div class="col-sm-6 col-md-6 pull-right">
+        <form class="navbar-form" role="search">    
+        <div class="input-group">
+            <input type="text" class="form-control" ng-model="searchText" placeholder="Just start typing here to Search Projects" name="srch-term" id="srch-term">
+            <div class="input-group-btn">
+                <button class="btn btn-success" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+        </div>
+    </form>
+        </div>            
+
+<div class="table-responsive" >
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>
+            Name
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Languages
+        </th>
+        <th>
+            Framework
+        </th>
+        <th>
+            Platform
+        </th>
+        <th>
+            From
+        </th>
+        <th>
+            To
+        </th>
+        <th>
+            Client URL
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr data-ng-repeat="project in projects | filter:searchText">
+            <td>{{project["Serial No"]}}</td>
+            <td>{{project["Project"]}}</td>
+            <td>{{project["Description"]}}</td>
+            <td>{{project["Language"]}}</td>
+            <td>{{project["Framework"]}}</td>            
+            <td>{{project["Platform"]}}</td>
+            <td>{{project["From"]}}</td>
+            <td>{{project["To"]}}</td>
+            <td>{{project["Client"]}}</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+</div>
